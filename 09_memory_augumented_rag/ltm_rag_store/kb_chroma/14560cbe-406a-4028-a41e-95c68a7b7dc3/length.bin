@@ -1,0 +1,6 @@
+Adaptive retrieval rate: Self-RAG retrieves for ~20-40% of sentences depending on
+task. For LTM-RAG this translates to: don't always query all memory tiers â€”
+query selectively based on the query type and available memory signals.
+
+Results: Self-RAG 7B outperforms ChatGPT on PopQA (54.9 vs 50.8), ASQA (38.2 vs 35.1),
+ARC-Challenge (67.3 vs 66.2). Reflection tokens add <5% latency overhead.ÿÿÿÿÿÿÿ
