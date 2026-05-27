@@ -1,0 +1,24 @@
+{
+  "test_user": {
+    "user_id": "test_user",
+    "display_name": "Test User",
+    "created_at": 1779678432.932849,
+    "last_active": 1779678576.6405082,
+    "total_sessions": 2,
+    "total_turns": 1,
+    "preferences": {},
+    "known_facts": [],
+    "metadata": {}
+  },
+  "test_user_compact": {
+    "user_id": "test_user_compact",
+    "display_name": "Test User",
+    "created_at": 1779678601.8887184,
+    "last_active": 1779678681.6958802,
+    "total_sessions": 1,
+    "total_turns": 1,
+    "preferences": {},
+    "known_facts": [],
+    "metadata": {}
+  }
+}
