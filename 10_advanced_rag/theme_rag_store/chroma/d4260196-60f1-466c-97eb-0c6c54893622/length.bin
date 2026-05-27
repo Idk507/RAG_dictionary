@@ -1,0 +1,7 @@
+Inference: Gibbs sampling over the DAG structure.
+Perplexity on Reuters-21578: PAM 1480 vs LDA 1560 vs pLSA 1700.
+
+In Theme-Aligned RAG: themes can have sub-themes (e.g., "Retrieval" has
+sub-themes "Dense Retrieval", "Sparse Retrieval", "Hybrid Retrieval").
+Queries about "vector search" would align to "Dense Retrieval" sub-theme,
+propagating up to the "Retrieval" parent theme for cross-theme synth
