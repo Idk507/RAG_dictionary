@@ -170,9 +170,7 @@ This is called the **embedding space**.
 
 An embedding is simply a vector
 
-[
-x \in \mathbb{R}^d
-]
+![Uploading image.png…]()
 
 where
 
@@ -189,15 +187,8 @@ depending on the embedding model.
 
 Example
 
-[
-x =
-\begin{bmatrix}
-0.13\
--0.24\
-0.51\
-...
-\end{bmatrix}
-]
+<img width="128" height="102" alt="image" src="https://github.com/user-attachments/assets/68766b88-5141-48ee-bf20-d18b07a78969" />
+
 
 Every document
 
@@ -375,15 +366,15 @@ DPR introduced this.
 
 After obtaining
 
-[
+
 q
-]
+
 
 and
 
-[
+
 d
-]
+
 
 we compute similarity.
 
@@ -391,12 +382,7 @@ Most common
 
 ## Dot Product
 
-[
-q \cdot d
-=========
-
-\sum_i q_i d_i
-]
+<img width="112" height="33" alt="image" src="https://github.com/user-attachments/assets/6216397f-7cb5-46cf-8750-86bdd9167e90" />
 
 Large
 
@@ -410,23 +396,12 @@ More relevant.
 
 Normalize vectors.
 
-[
-\cos(\theta)
-============
+<img width="127" height="36" alt="image" src="https://github.com/user-attachments/assets/28ce8f14-1839-434f-8e72-a831b71f9fb0" />
 
-\frac{q \cdot d}
-{|q||d|}
-]
 
 Range
 
--1
-
-to
-
-1
-
-Closer to 1
+-1 to 1  Closer to 1
 
 ↓
 
@@ -438,9 +413,8 @@ Similar meaning.
 
 Less common.
 
-[
-||q-d||
-]
+
+[ ||q-d|| ]
 
 Smaller distance
 
@@ -550,20 +524,8 @@ Modern dense retrievers frequently optimize a contrastive objective such as Info
 
 For a query embedding (q), one positive document (d^+), and negatives (d_i^-),
 
-[
-L
-=
+<img width="232" height="41" alt="image" src="https://github.com/user-attachments/assets/d9f7420a-8fbb-41c7-9940-2b95a2bb6fd2" />
 
--\log
-\frac{
-e^{\text{sim}(q,d^+)/\tau}
-}{
-e^{\text{sim}(q,d^+)/\tau}
-+
-\sum_i
-e^{\text{sim}(q,d_i^-)/\tau}
-}
-]
 
 where
 
