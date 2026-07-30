@@ -285,19 +285,7 @@ Suppose
 
 User query
 
-[
-q
-
-
-LLM
-
-G(q)=d_h
-
-
-where
-
-
-d_h
+<img width="105" height="40" alt="image" src="https://github.com/user-attachments/assets/2d4ef42f-2543-4515-9036-320cfe0df18e" />
 
 
 is the hypothetical document.
@@ -379,13 +367,7 @@ Example
 768 dimensions
 
 ```
-v =
-[
-0.12,
-0.41,
--0.33,
-...
-]
+v = [ 0.12,0.41,-0.33,... ]
 ```
 
 Similarity
