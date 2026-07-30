@@ -161,17 +161,8 @@ Sparse Representation.
 
 BM25 score is
 
-[
-Score(D,Q)=
-\sum_{t\in Q}
-IDF(t)
-\cdot
-\frac{
-f(t,D)(k_1+1)
-}{
-f(t,D)+k_1(1-b+b\frac{|D|}{avgdl})
-}
-]
+<img width="480" height="87" alt="image" src="https://github.com/user-attachments/assets/7ac6fa14-b009-4ab2-a516-d17ab86b641a" />
+
 
 Where
 
@@ -248,11 +239,8 @@ Similarity
 
 Usually cosine similarity
 
-[
-\cos(\theta)=
-\frac{x\cdot y}
-{||x||||y||}
-]
+<img width="155" height="62" alt="image" src="https://github.com/user-attachments/assets/0a818bde-0e3e-46d4-90d4-0f43f1a2f527" />
+
 
 Higher cosine
 
@@ -510,12 +498,8 @@ D3 0.88
 
 Combine
 
-[
-Hybrid=
-\alpha S_{dense}
-+
-(1-\alpha)S_{BM25}
-]
+<img width="307" height="60" alt="image" src="https://github.com/user-attachments/assets/faa19132-ff54-4592-b6e7-3ddc11e9c8b0" />
+
 
 Example
 
@@ -587,11 +571,7 @@ Instead of combining raw scores, it combines ranks.
 
 Formula
 
-[
-RRF(d)=
-\sum_i
-\frac{1}{k+r_i(d)}
-]
+<img width="256" height="87" alt="image" src="https://github.com/user-attachments/assets/a052e3b1-f11e-4c79-99a3-e55b346ed7b4" />
 
 Where
 
@@ -623,28 +603,23 @@ Dense
 Using (k=60):
 
 For D1:
+<img width="345" height="145" alt="image" src="https://github.com/user-attachments/assets/bbead851-5134-4336-b18b-3b385c6cd3bb" />
 
-[
-\frac{1}{61}+\frac{1}{62}
-]
 
 For D2:
 
-[
-\frac{1}{62}+\frac{1}{61}
-]
+<img width="516" height="152" alt="image" src="https://github.com/user-attachments/assets/4c02f0de-d1a3-46ab-90db-6e0f48bdcbcf" />
+
 
 For D5:
 
-[
-\frac{1}{63}
-]
+<img width="481" height="87" alt="image" src="https://github.com/user-attachments/assets/7fcc40d9-4fa7-41f6-b514-7e6938274644" />
+
 
 For D3:
 
-[
-\frac{1}{63}
-]
+<img width="481" height="87" alt="image" src="https://github.com/user-attachments/assets/1b30cd10-46ab-4a9e-a957-9908871ae92b" />
+
 
 Documents consistently ranked highly across methods naturally rise to the top. RRF is robust because it is insensitive to the different score distributions produced by BM25 and dense retrievers.
 
