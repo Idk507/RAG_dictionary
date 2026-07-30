@@ -443,10 +443,8 @@ Very common words (e.g., "the", "is", "data") are less useful for distinguishing
 
 The common formula is
 
-[
-IDF(t)=
-\log\left(\frac{N}{DF(t)}\right)
-]
+<img width="223" height="70" alt="image" src="https://github.com/user-attachments/assets/7ba506ab-c844-4029-aff0-9aeacd714c9b" />
+
 
 Where:
 
@@ -487,9 +485,7 @@ TF-IDF combines local importance (TF) with global rarity (IDF).
 
 Formula
 
-[
-TFIDF = TF \times IDF
-]
+$$\text{TF-IDF} = \text{TF} \times \text{IDF}$$
 
 Suppose:
 
@@ -518,17 +514,8 @@ Modern sparse retrieval systems typically use **BM25**, which improves on TF-IDF
 
 The BM25 score for a document (D) and query (Q) is
 
-[
-Score(D,Q)=
-\sum_{t\in Q}
-IDF(t)
-\cdot
-\frac{
-f(t,D)(k_1+1)
-}{
-f(t,D)+k_1\left(1-b+b\frac{|D|}{avgdl}\right)
-}
-]
+<img width="456" height="82" alt="image" src="https://github.com/user-attachments/assets/5b6b3b16-9399-4cd3-aa1d-e6fb079e2c96" />
+
 
 Where:
 
