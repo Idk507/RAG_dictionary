@@ -828,4 +828,6 @@ Large Language Model
 Final Answer
 ```
 
+
+
 In essence, **Contextual Compression Retriever RAG is a post-retrieval optimization technique that transforms retrieved documents into a compact, query-specific representation before generation.** From a theoretical perspective, it can be viewed as solving an information optimization problem: maximizing the amount of query-relevant information delivered to the LLM while minimizing token count, thereby improving efficiency, reducing cost, and often increasing answer quality without fundamentally changing the retrieval mechanism itself.
