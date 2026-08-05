@@ -44,6 +44,55 @@ Everything else wastes:
 
 REFRAG redesigns decoding so that the LLM initially operates on **compressed semantic representations instead of raw text**, expanding only the parts that become necessary during reasoning. :contentReference[oaicite:1]{index=1}
 
+**REFRAG** (which stands for *Rethinking RAG-based Decoding*) is an approach designed to solve a huge problem in traditional Retrieval-Augmented Generation (RAG): **retrieved documents waste massive amounts of memory and computing power.**
+
+---
+
+### The Big Problem with Standard RAG
+
+Normally, when you ask an LLM a question using RAG:
+
+1. The system fetches, say, 10 relevant documents (around 5,000 tokens of text).
+2. It dumps **all 5,000 tokens** directly into the prompt.
+3. The LLM processes every single word, calculating attention across all 5,000 tokens.
+
+**Why is this bad?** Out of those 5,000 tokens, maybe only **100 tokens** actually contain the answer you need. The other 4,900 tokens clog up GPU memory (KV cache) and slow down generation speed, even though they aren't useful.
+
+---
+
+### The REFRAG Solution: "Zoom In Only When Needed"
+
+Instead of feeding raw text into the LLM, REFRAG works like **Google Maps**:
+
+* **Initial View:** When you open Google Maps, you see the whole city at a high level. You don't see every street name or house number immediately.
+* **Zooming In:** You only zoom in to see specific street details when you need to navigate there.
+
+REFRAG applies this exact logic to text processing in 4 steps:
+
+1. **Tiny Chunking:** It splits retrieved documents into tiny pieces (e.g., 16 to 32 tokens each).
+2. **Compression (The High-Level View):** Each tiny piece is converted into a single **dense semantic vector (embedding)**. Instead of reading 16 raw words, the LLM reads just 1 summary vector.
+3. **Sensing (The Decision):** While generating an answer, the LLM continually asks: *"Do I have enough high-level information from this vector, or do I need exact details?"*
+4. **Selective Expansion (Zooming In):** If the model needs specific details (like exact numbers, names, or quotes), it expands **only that specific vector** back into its original text. The rest of the document remains compressed as high-level vectors.
+
+---
+
+### Key Benefits
+
+* **Faster Speed:** The time to receive the first word (time-to-first-token) drops significantly because the model isn't reading thousands of raw words up front.
+* **Lower Memory Usage:** The GPU's memory footprint (KV cache) shrinks drastically because most text stays compressed as single vectors rather than full token sequences.
+* **Smarter Attention:** The model avoids wasting compute power attending to irrelevant fluff across hundreds of retrieved pages.
+
+---
+
+### Summary Comparison
+
+| Metric / Feature | Standard RAG | REFRAG |
+| --- | --- | --- |
+| **Initial Input** | Thousands of raw text tokens | Compact semantic embeddings |
+| **Memory Footprint** | Massive (stores full KV cache for all text) | Minimal (stores KV cache mostly for embeddings) |
+| **Detailed Text** | Revealed all at once up front | Revealed dynamically only when needed |
+| **Latency** | High (slow processing time) | Low (much faster generation) |
+
 ---
 
 # 2. The Problem with Traditional RAG
